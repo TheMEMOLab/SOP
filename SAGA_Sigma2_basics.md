@@ -140,7 +140,7 @@ To submit the job:
 A user can monitorate the status of the Job by the command ```squeue``` :
 
 ```bash
-(base) [auve@login-3.SAGA auve]$ squeue |head
+(base) [auve@login-3.SAGA auve]$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
            2790926    bigmem JHI1c_00   jhi023 PD       0:00      1 (Resources)
            2693856     accel  umb_sam manuelca PD       0:00      1 (Resources)
@@ -152,6 +152,15 @@ A user can monitorate the status of the Job by the command ```squeue``` :
            2693861     accel   umb_eq manuelca PD       0:00      1 (Priority)
            2799386     accel   in5550  myrthel PD       0:00      1 (Priority)
   ```
+
+To check the status of all the jobs from a single user you can type:
+
+```bash
+base) [auve@login-3.SAGA auve]$ squeue -u $USER
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+```
+
+
 
 
 
