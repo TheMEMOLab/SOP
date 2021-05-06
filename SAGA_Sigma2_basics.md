@@ -126,7 +126,7 @@ blastp -query $i -db $line -max_target_seqs 1 -dbsize 100000000 -num_threads 10 
 
 
 ```
-**Remember to always add the ```--account=nn9055k``` to the script**
+**Remember always to add the ```--account=nn9055k``` to the script**
 
 
 To submit the job:
@@ -134,6 +134,24 @@ To submit the job:
 ```bash
 (base) [auve@login-3.SAGA auve]$ sbatch myblast.sh
 ```
+
+**3.2 Monitorate the job progress**
+
+A user can monitorate the status of the Job by the command ```squeue``` :
+
+```bash
+(base) [auve@login-3.SAGA auve]$ squeue |head
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           2790926    bigmem JHI1c_00   jhi023 PD       0:00      1 (Resources)
+           2693856     accel  umb_sam manuelca PD       0:00      1 (Resources)
+           2796035     accel Centaurs  brasser PD       0:00      1 (Priority)
+           2693857     accel   umb_eq manuelca PD       0:00      1 (Priority)
+           2797661     accel epvtest1 erlingpv PD       0:00      1 (Priority)
+           2797962     accel goexplor vegarbjo PD       0:00      1 (Priority)
+           2693859     accel   umb_eq manuelca PD       0:00      1 (Priority)
+           2693861     accel   umb_eq manuelca PD       0:00      1 (Priority)
+           2799386     accel   in5550  myrthel PD       0:00      1 (Priority)
+  ```
 
 
 
