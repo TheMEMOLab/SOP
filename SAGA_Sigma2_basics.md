@@ -103,8 +103,8 @@ set -o errexit  # Exit the script on any error
 set -o nounset  # Treat any unset variables as an error
 
 module --quiet purge  # Reset the modules to the system default
-module load Anaconda3/2019.03
-BLAST+/2.11.0-gompi-2020b
+module load Anaconda3/2019.03 #Load Anaconda 
+module load BLAST+/2.11.0-gompi-2020b #Load blast
 
 ##Actuvate conda environments
 export PS1=\$
@@ -126,7 +126,7 @@ blastp -query $i -db $line -max_target_seqs 1 -dbsize 100000000 -num_threads 10 
 
 
 ```
-**Remember always to add the ```--account=nn9055k``` to the script**
+**Remember always to add the ```--account=nn9055k``` to the scripts**
 
 
 To submit the job:
