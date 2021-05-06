@@ -60,7 +60,7 @@ This will display the amount of data used in the $HOME and $PROJECT directory.
 
 ### 3. Submit a job
 
-**3.1 Submit by a SLURM script
+**3.1 Submit by a SLURM script**
 
 To submit jobs, you need to write all the instructions you want the computer to execute. This is what an script is.
 
@@ -128,6 +128,12 @@ blastp -query $i -db $line -max_target_seqs 1 -dbsize 100000000 -num_threads 10 
 ```
 **Remember to always add the ```--account=nn9055k``` to the script**
 
+
+To submit the job:
+
+```bash
+(base) [auve@login-3.SAGA auve]$ sbatch myblast.sh
+```
 
 
 
