@@ -29,7 +29,7 @@ ssh myusername@saga.sigma2.no
 
 **2.3 $HOME and $PROJECT directories.**
 
-As a user of SAGA you will have access to two main directories the $HOME and the $PROJECT. The $HOME directory has a limited space of 20 GiB / 100 K files. Please just use the $HOME to login and keep small text and log files. For data transfer and temporary storage you can use the $PROJECT directory, this is allocated on ```/cluster/projects/nn9864k```. Please create a folder with your username under that directory by:
+As a user of SAGA you will have access to two main directories the $HOME and the $PROJECT. The $HOME directory has a limited space of **20 GiB / 100 K files**. Please only use the $HOME to login and keep small text and log files. For data transfer and temporary storage you can use the $PROJECT directory, this is allocated on ```/cluster/projects/nn9864k```. Please create a folder with your username under that directory by:
 
 ```bash
 $ cd /cluster/projects/nn9864k
@@ -38,6 +38,26 @@ $ mkdir $USER
 
 **The disk quota limit for this directory is 10 Tb. Please do not storage intermediate results and compress all your fastq and raw files using tools such pigz or tar**
 
+**2.4 Display the disk usage**
+
+To know how much space is used by the users you can use the ```dusage``` command as follows:
+
+```bash
+(base) [auve@login-3.SAGA auve]$ dusage 
+
++---------------------------+--------+----------+--------------+----------+-----------------+-----------+
+|                      path |   pool |   backup |   space used |    quota |   files/folders |     quota |
+|---------------------------+--------+----------+--------------+----------+-----------------+-----------|
+|        /cluster/home/auve |      1 |      yes |     13.7 GiB | 20.0 GiB |          71 161 |   100 000 |
+|        /cluster/home/auve |      2 |      yes |    383.6 MiB | 20.0 GiB |           1 153 |   100 000 |
+| /cluster/projects/nn9055k |      1 |      yes |    320.6 GiB |  1.0 TiB |         247 135 | 1 000 000 |
+| /cluster/projects/nn9055k |      2 |      yes |    780.2 GiB |  1.0 TiB |          21 325 | 1 000 000 |
+| /cluster/projects/nn9864k |      2 |      yes |     35.8 GiB | 10.0 TiB |          26 342 | 1 048 576 |
++---------------------------+--------+----------+--------------+----------+-----------------+-----------+
+
+(*) this script is still being tested, unsure whether the backup information is correct
+    please send suggestions/corrections to radovan.bast@uit.no
+```
 
 
 
