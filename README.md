@@ -33,7 +33,6 @@ ssh myusername@saga.sigma2.no
 As a user of SAGA you will have access to two main directories the $HOME and the $PROJECT. The $HOME directory has a limited space of 20 GiB / 100 K files. Please just use the $HOME to login and keep small text and log files. For data transfer and temporary storage you can use the $PROJECT directory, this is allocated on ```/cluster/projects/nn9864k```. Please create a folder with your username under that directory by:
 
 ```bash
-
 $ cd /cluster/projects/nn9864k
 $ mkdir $USER
 ```
