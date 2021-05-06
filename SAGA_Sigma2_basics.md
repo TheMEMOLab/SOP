@@ -49,15 +49,14 @@ To know how much space is used by the users you can use the ```dusage``` command
 |                      path |   pool |   backup |   space used |    quota |   files/folders |     quota |
 |---------------------------+--------+----------+--------------+----------+-----------------+-----------|
 |        /cluster/home/auve |      1 |      yes |     13.7 GiB | 20.0 GiB |          71 161 |   100 000 |
-|        /cluster/home/auve |      2 |      yes |    383.6 MiB | 20.0 GiB |           1 153 |   100 000 |
-| /cluster/projects/nn9055k |      1 |      yes |    320.6 GiB |  1.0 TiB |         247 135 | 1 000 000 |
-| /cluster/projects/nn9055k |      2 |      yes |    780.2 GiB |  1.0 TiB |          21 325 | 1 000 000 |
 | /cluster/projects/nn9864k |      2 |      yes |     35.8 GiB | 10.0 TiB |          26 342 | 1 048 576 |
 +---------------------------+--------+----------+--------------+----------+-----------------+-----------+
 
 (*) this script is still being tested, unsure whether the backup information is correct
     please send suggestions/corrections to radovan.bast@uit.no
 ```
+
+This will display the amount of data used in the $HOME and $PROJECT directory.
 
 
 
