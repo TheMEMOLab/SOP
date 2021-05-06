@@ -58,6 +58,76 @@ To know how much space is used by the users you can use the ```dusage``` command
 
 This will display the amount of data used in the $HOME and $PROJECT directory.
 
+### 3. Submit a job
+
+**3.1 Submit by a SLURM script
+
+To submit jobs, you need to write all the instructions you want the computer to execute. This is what an script is.
+
+SLURM uses a bash (computer language) base script to read the instructions. The first lines, are reserved words that SLURM needs to read inorder to launch the program:
+
+```
+-p --partition <partition-name>       --pty <software-name/path>
+--mem <memory>                        --gres <general-resources>
+-n --ntasks <number of tasks>         -t --time <days-hours:minutes>
+-N --nodes <number-of-nodes>          -A --account <account>
+-c --cpus-per-task <number-of-cpus>   -L --licenses <license>
+-w --nodelist <list-of-node-names>    -J --job-name <jobname>
+``` 
+We can indicate these options by using the #SBATCH word following by any of these flag (e.g -c 10 ; means 10 CPUs). 
+The following is a generic example of a SLRUM script for BLAST analysis:
+
+```bash
+#!/bin/bash
+
+## Job name:
+#SBATCH --job-name=Blast
+#
+## Wall time limit:
+#SBATCH --time=00:00:00
+#
+## Project:
+#SBATCH --account=nn9055k
+## Other parameters:
+#SBATCH --cpus-per-task 12
+#SBATCH --mem=60G
+#SBATCH --nodes 1
+## Other parameters:
+#SBATCH --gres=localscratch:150G
+
+
+######Everything below this are the job instructions######
+
+## Set up job environment:
+set -o errexit  # Exit the script on any error
+set -o nounset  # Treat any unset variables as an error
+
+module --quiet purge  # Reset the modules to the system default
+module load Anaconda3/2019.03
+BLAST+/2.11.0-gompi-2020b
+
+##Actuvate conda environments
+export PS1=\$
+source ${EBROOTANACONDA3}/etc/profile.d/conda.sh
+conda deactivate &>/dev/null
+
+
+##Useful lines to know where and when the job starts
+
+echo "I am running on:"
+echo $SLURM_NODELIST   ##The node where the job is executed
+echo "I am running with:"
+echo $SLURM_CPUS_ON_NODE "cpus"  ###The number of cpus
+echo "Today is:"
+date
+
+blastp -query $i -db $line -max_target_seqs 1 -dbsize 100000000 -num_threads 10 -outfmt 6 > $i.out
+
+
+
+```
+**Remember to always add the ```--account=nn9055k``` to the script**
+
 
 
 
