@@ -92,7 +92,7 @@ The following is a generic example of a SLRUM script for BLAST analysis:
 #SBATCH --cpus-per-task 12
 #SBATCH --mem=60G
 #SBATCH --nodes 1
-## Other parameters:
+## Reserve space in local disk for faster computation
 #SBATCH --gres=localscratch:150G
 
 
