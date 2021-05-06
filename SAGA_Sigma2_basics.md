@@ -87,7 +87,7 @@ The following is a generic example of a SLRUM script for BLAST analysis:
 #SBATCH --time=00:00:00
 #
 ## Project:
-#SBATCH --account=nn9055k
+#SBATCH --account=nn9864k
 ## Other parameters:
 #SBATCH --cpus-per-task 12
 #SBATCH --mem=60G
@@ -126,7 +126,7 @@ blastp -query $i -db $line -max_target_seqs 1 -dbsize 100000000 -num_threads 10 
 
 
 ```
-**Remember always to add the ```--account=nn9055k``` to the scripts**
+**Remember always to add the ```--account=nn9864k``` to the scripts**
 
 
 To submit the job:
