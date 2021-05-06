@@ -36,3 +36,5 @@ As a user of SAGA you will have access to two main directories the $HOME and the
 $ cd /cluster/projects/nn9864k
 $ mkdir $USER
 ```
+
+```perro```
