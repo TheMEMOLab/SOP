@@ -7,7 +7,6 @@ Author: Arturo Vera-Ponce de Leon
 This document is intended to be a quick reference guide on basic usage of SAGA HPC cluster. For a complete reference please refere to documentation on [SAGA](https://documentation.sigma2.no/hpc_machines/saga.html) and
 [Sigma2](https://www.sigma2.no/).
 
-
 ### 2. General usage.
 
  **2.1 How to obtain an account:**
@@ -28,7 +27,7 @@ ssh myusername@saga.sigma2.no
 ```
 *Remeber to change myusername to the user name provided by Sigma2.
 
-**2.3 $HOME and $PROJECT directories.
+**2.3 $HOME and $PROJECT directories.**
 
 As a user of SAGA you will have access to two main directories the $HOME and the $PROJECT. The $HOME directory has a limited space of 20 GiB / 100 K files. Please just use the $HOME to login and keep small text and log files. For data transfer and temporary storage you can use the $PROJECT directory, this is allocated on ```/cluster/projects/nn9864k```. Please create a folder with your username under that directory by:
 
@@ -36,6 +35,10 @@ As a user of SAGA you will have access to two main directories the $HOME and the
 $ cd /cluster/projects/nn9864k
 $ mkdir $USER
 ```
+
+**The disk quota limit for this directory is 10 Tb. Please do not storage intermediate results and compress all your fastq and raw files using tools such pigz or tar**
+
+
 
 
 
