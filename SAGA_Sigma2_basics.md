@@ -162,7 +162,7 @@ base) [auve@login-3.SAGA auve]$ squeue -u $USER
 
 ### 4. Conda environments 
 
-**4.1 Create a specific conda environment: **
+**4.1 Create a specific conda environment:**
 
 If specific software is not installed in SAGA, the easiest way to install most of the bioinformatics software is by creating Conda environments. 
 The Sigma2 documentation fully describes how to do this [here](https://documentation.sigma2.no/software/userinstallsw/python.html). However, the following is a brief summary of how to create an envrioment in SAGA.
