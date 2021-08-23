@@ -175,6 +175,78 @@ The Sigma2 documentation fully describes how to do this [here](https://documenta
 (base) [auve@login-3.SAGA nn9864k]$
 ```
 
+2. Create an evironment and install software.
+
+*Let's use as example the instalation of the taxonomy classification tool GTDBTk:*
+
+The following command will create a Conda environment named: GTDBTK-1.5.0 and install on it all the dependencies to run gtdbtk tool:
+
+```bash
+(base) [auve@login-3.SAGA auve]$ conda create -y --prefix /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0 -c conda-forge -c bioconda gtdbtk=1.5.0
+Collecting package metadata (current_repodata.json): |done
+Solving environment: failed with repodata from current_repodata.json, will retry with next repodata source.
+Collecting package metadata (repodata.json): done
+Solving environment: done
+## Package Plan ##
+
+  environment location: /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0
+
+  added / updated specs:
+    - gtdbtk=1.5.0
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    colorama-0.4.4             |     pyh9f0ad1d_0          18 KB  conda-forge
+    dendropy-4.5.2             |     pyh3252c3a_0         308 KB  bioconda
+dendropy-4.5.2       | 308 KB    | ################################################################################################################################################### | 100% 
+zstd-1.4.9           | 431 KB    | ################################################################################################################################################### | 100% 
+lz4-c-1.9.3          | 179 KB    | ################################################################################################################################################### | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: - b'\n     GTDB-Tk v1.5.0 requires ~40G of external data which needs to be downloaded\n     and unarchived. This can be done automatically, or manually:\n\n     1. Run the command download-db.sh to automatically download to:\n        /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0/share/gtdbtk-1.5.0/db/\n\n     2. Manually download the latest reference data:\n        https://github.com/Ecogenomics/GTDBTk#gtdb-tk-reference-data\n\n     2b. Set the GTDBTK_DATA_PATH environment variable in the file:\n         /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0/etc/conda/activate.d\n\n\n'
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0
+```
+Explaining the command:
+conda create: Create a conda environent
+-y : Do not ask for confirmation.
+--prefix: Full path to environment location (i.e. prefix).
+-c : Additional channel to search for packages.
+
+You can either install the conda environments in this shared location ```/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0``` or in your personal ```nn9864k/$USER``` folder.
+
+3. Activate the environment:
+
+```bash
+(base) [auve@login-3.SAGA auve]$ conda activate /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0
+(/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0) [auve@login-3.SAGA auve]$
+```
+
+
+4. Test the software by displaying the help:
+
+```bash
+(/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0) [auve@login-3.SAGA databases]$ gtdbtk --help
+
+================================================================================
+                                     ERROR                                      
+________________________________________________________________________________
+
+           The GTDB-Tk reference data does not exist or is corrupted.           
+GTDBTK_DATA_PATH=/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0/share/gtdbtk-1.5.0/db/
+
+   Please compare the checksum to those provided in the download repository.    
+          https://github.com/Ecogenomics/GTDBTk#gtdb-tk-reference-data          
+================================================================================
+````
+
+The software is now installed. The message shows what we need to do in order this software runs.
 
 
 
