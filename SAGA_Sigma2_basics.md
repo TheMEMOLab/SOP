@@ -160,6 +160,21 @@ base) [auve@login-3.SAGA auve]$ squeue -u $USER
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 ```
 
+### 4. Conda environments 
+
+**4.1 Create a specific conda environment: **
+
+If specific software is not installed in SAGA, the easiest way to install most of the bioinformatics software is by creating Conda environments. 
+The Sigma2 documentation fully describes how to do this [here](https://documentation.sigma2.no/software/userinstallsw/python.html). However, the following is a brief summary of how to create an envrioment in SAGA.
+
+1. Load the miniconda3 module and activate conda
+
+```bash
+[auve@login-3.SAGA nn9864k]$ module load Miniconda3/4.9.2
+[auve@login-3.SAGA nn9864k]$ conda activate
+(base) [auve@login-3.SAGA nn9864k]$
+```
+
 
 
 
