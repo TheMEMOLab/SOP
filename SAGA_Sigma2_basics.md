@@ -179,7 +179,7 @@ The Sigma2 documentation fully describes how to do this [here](https://documenta
 
 *Let's use as example the instalation of the taxonomy classification tool GTDBTk:*
 
-The following command will create a Conda environment named: GTDBTK-1.5.0 and install on it all the dependencies to run gtdbtk tool:
+The following command will create a Conda environment named: GTDBTK-1.5.0 and install on it all the dependencies to run gtdbtk tool.
 
 ```bash
 (base) [auve@login-3.SAGA auve]$ conda create -y --prefix /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0 -c conda-forge -c bioconda gtdbtk=1.5.0
@@ -219,7 +219,7 @@ conda create: Create a conda environent
 --prefix: Full path to environment location (i.e. prefix).
 -c : Additional channel to search for packages.
 
-You can either install the conda environments in this shared location ```/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0``` or in your personal ```nn9864k/$USER``` folder.
+You can either install the conda environments in this shared location ```/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0``` or in your personal ```nn9864k/$USER``` folder. The idea of the shared folder is to create a compendium of multiple bioinformatic tools many people in the MEMO group use and not to install them every time a user needs one. 
 
 3. Activate the environment:
 
@@ -247,7 +247,6 @@ GTDBTK_DATA_PATH=/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0
 ````
 
 The software is now installed. The message shows what we need to do in order this software runs.
-
 
 
 
