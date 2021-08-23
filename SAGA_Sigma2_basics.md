@@ -182,7 +182,7 @@ The Sigma2 documentation fully describes how to do this [here](https://documenta
 The following command will create a Conda environment named: GTDBTK-1.5.0 and install on it all the dependencies to run gtdbtk tool.
 
 ```bash
-(base) [auve@login-3.SAGA auve]$ conda create -y --prefix /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0 -c conda-forge -c bioconda gtdbtk=1.5.0
+$ conda create -y --prefix /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0 -c conda-forge -c bioconda gtdbtk=1.5.0
 Collecting package metadata (current_repodata.json): |done
 Solving environment: failed with repodata from current_repodata.json, will retry with next repodata source.
 Collecting package metadata (repodata.json): done
