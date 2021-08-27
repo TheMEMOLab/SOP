@@ -182,7 +182,10 @@ The Sigma2 documentation fully describes how to do this [here](https://documenta
 The following command will create a Conda environment named: GTDBTK-1.5.0 and install on it all the dependencies to run gtdbtk tool.
 
 ```bash
-$ conda create -y --prefix /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0 -c conda-forge -c bioconda gtdbtk=1.5.0
+$ conda create -y --prefix /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0 -c conda-forge -c bioconda gtdbtk=1.5.0```
+```
+If everything is OK it will start running and displaying something like this:
+```bash
 Collecting package metadata (current_repodata.json): |done
 Solving environment: failed with repodata from current_repodata.json, will retry with next repodata source.
 Collecting package metadata (repodata.json): done
@@ -213,11 +216,11 @@ done
 #
 #     $ conda activate /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0
 ```
-Explaining the command:
+*Explaining the command:
 conda create: Create a conda environent
 -y : Do not ask for confirmation.
 --prefix: Full path to environment location (i.e. prefix).
--c : Additional channel to search for packages.
+-c : Additional channel to search for packages.*
 
 You can either install the conda environments in this shared location ```/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0``` or in your personal ```nn9864k/$USER``` folder. The idea of the shared folder is to create a compendium of multiple bioinformatic tools many people in the MEMO group use and not to install them every time a user needs one. 
 
