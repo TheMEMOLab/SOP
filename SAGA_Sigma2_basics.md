@@ -291,31 +291,31 @@ Mounting the HPC as a local drive on your personal computer, means that you can 
 
 3. Make an empty file named `~/mountsaga.sh` and paste the following contents into it.
 
-```shell
-#!/bin/bash
-
-
-# Finally, mount the sshfs locally
-sshfs cmkobel@saga.sigma2.no:/cluster/home/cmkobel ~/saga \
-    -o idmap=none -o uid=$(id -u),gid=$(id -g) \
-    -o allow_other -o umask=077 -o follow_symlinks
-```
+   ```shell
+   #!/bin/bash
+   
+   # Finally, mount the sshfs locally
+   sshfs cmkobel@saga.sigma2.no:/cluster/home/cmkobel ~/saga \
+       -o idmap=none -o uid=$(id -u),gid=$(id -g) \
+       -o allow_other -o umask=077 -o follow_symlinks
+   ```
 
 ​	Please change USERNAME to your user name on saga.
 
 4. Make this script executable by running the following command:
 
-`chmod +x ~/mountsaga.sh`
+   `chmod +x ~/mountsaga.sh`
 
 5. Finally, mount the sshfs locally by running the above script:
 
-`~/mountsaga.sh`
+   `~/mountsaga.sh`
 
 This is the command you will use each time you want to mount the sshfs in the future.
 
 If you wash to unmount the sshfs, you can use the following command:
 
-```shell
-umount ~/saga
-```
+   ```shell
+   umount ~/saga
+   ```
 
+You can of course mount orion just the same way. Just be aware, that there is a bug in macFUSE which means that you can only mount a single sshfs in a specific directory. So if you want to mount saga and orion besides each other, you need to put one of them into a subfolder.
