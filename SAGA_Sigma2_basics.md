@@ -269,53 +269,53 @@ You can either install the conda environments in this shared location ```/cluste
 
 The software is now installed. The message shows what we need to do in order this software runs.
 
-### 5. Optional: Mount the HPC as a "local drive"
+### 5. Optional: Mount the HPC as a "local drive" using *sshfs*
 
-Mounting the login node as a local drive on your personal computer can make it easy to access files as well as using a local editor. The official sigma2/saga documentation doesn't offer much on how to do this, so here is a quick guide on how to set it all up. Please be aware that due to the fundamental differences between NTFS and any POSIX-related file system, it is not possible to do this on a Windows based computer.
+Mounting the HPC as a local drive on your personal computer, means that you can access the HPC file system directly through your local applications. The official sigma2/saga documentation doesn't offer much on how to do this, so here is a quick guide on how to set it up. Please be aware that due to the fundamental differences between NTFS and any POSIX-related file system, it is not possible to do this on a Windows based compter.
 
 
 
-0. Optional but highly recommended: Install a personal ssh key set between your computer and saga https://documentation.sigma2.no/getting_started/create_ssh_keys.html?highlight=sshfs#login-via-ssh-keys 
+0. Optional but recommended: Install a personal ssh key set between your computer and saga https://documentation.sigma2.no/getting_started/create_ssh_keys.html?highlight=sshfs#login-via-ssh-keys 
+
+   This will enable you to log in without manually typing a password each time.
 
 1. On Linux and Macos you should install sshfs.
 
-   On Macos you need FUSE as well. When installing FUSE, be noted that you need to reboot your computer in order to activate the kernel extension.
+   On Macos you need [macFUSE](https://osxfuse.github.io/) as well. When installing macFUSE, be noted that you need to reboot your computer in order to activate the kernel extension.
 
-2. Make an empty file named `~/mountsaga.sh` and paste the following contents into it.
+2. Make an empty directory called saga
+
+   ```shell
+   mkdir ~/saga
+   ```
+
+3. Make an empty file named `~/mountsaga.sh` and paste the following contents into it.
 
 ```shell
 #!/bin/bash
 
-# Define and initialize mount dir
-mount_dir="~/saga"
-mkdir -p $mount_dir
-
 
 # Finally, mount the sshfs locally
-sshfs USERNAME@saga.sigma2.no:/cluster/home/USERNAME $mount_dir \
+sshfs cmkobel@saga.sigma2.no:/cluster/home/cmkobel ~/saga \
     -o idmap=none -o uid=$(id -u),gid=$(id -g) \
     -o allow_other -o umask=077 -o follow_symlinks
 ```
 
 ​	Please change USERNAME to your user name on saga.
 
-3. Make the script executable by running the following command:
+4. Make this script executable by running the following command:
 
-   `chmod +x ~/mountsaga.sh`
+`chmod +x ~/mountsaga.sh`
 
-4. Finally, mount the sshfs locally by running the following the following command:
+5. Finally, mount the sshfs locally by running the above script:
 
-   `~/mountsaga.sh`
+`~/mountsaga.sh`
 
-   This is the command you will use each time you want to mount the sshfs in the future.
+This is the command you will use each time you want to mount the sshfs in the future.
 
-   If you want to unmount the sshfs, you can use one of the following commands:
+If you wash to unmount the sshfs, you can use the following command:
 
-   ```shell
-   # Linux
-   sudo unmount -f ~/saga
-   
-   # Macos
-   sudo diskutil unmount force ~/saga
-   ```
+```shell
+umount ~/saga
+```
 
