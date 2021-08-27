@@ -295,7 +295,7 @@ Mounting the HPC as a local drive on your personal computer, means that you can 
    #!/bin/bash
    
    # Finally, mount the sshfs locally
-   sshfs cmkobel@saga.sigma2.no:/cluster/home/cmkobel ~/saga \
+   sshfs USERNAME@saga.sigma2.no:/cluster/home/USERNAME ~/saga \
        -o idmap=none -o uid=$(id -u),gid=$(id -g) \
        -o allow_other -o umask=077 -o follow_symlinks
    ```
@@ -312,7 +312,7 @@ Mounting the HPC as a local drive on your personal computer, means that you can 
 
 This is the command you will use each time you want to mount the sshfs in the future.
 
-If you wash to unmount the sshfs, you can use the following command:
+If you wish to unmount the sshfs, you can use the following command:
 
    ```shell
    umount ~/saga
