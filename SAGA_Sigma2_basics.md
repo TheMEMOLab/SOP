@@ -1,6 +1,6 @@
 # SOP - Basic usage of SAGA Sigma2 high performance computing (HPC) cluster for the MEMO group users.
 
-v1.0, May 06, 2021
+v1.1, August 27, 2021
 Author: Arturo Vera-Ponce de Leon
 
 ### 1. What is this?
@@ -10,7 +10,7 @@ This document is intended to be a quick reference guide on basic usage of SAGA H
 ### 2. General usage.
 
  **2.1 How to obtain an account:**
- 
+
 To be abble to use the SAGA cluster you first need to apply for an account. Please use the following link [HPC user application form](https://www.metacenter.no/user/application/form/notur/) and fill the aplication form. 
 
 * Chose the Project number **NN9864K**  in the application form as follow.
@@ -73,7 +73,7 @@ SLURM uses a bash (computer language) base script to read the instructions. The 
 -N --nodes <number-of-nodes>          -A --account <account>
 -c --cpus-per-task <number-of-cpus>   -L --licenses <license>
 -w --nodelist <list-of-node-names>    -J --job-name <jobname>
-``` 
+```
 We can indicate these options by using the #SBATCH word following by any of these flag (e.g -c 10 ; means 10 CPUs). 
 The following is a generic example of a SLRUM script for BLAST analysis:
 
@@ -151,7 +151,7 @@ A user can monitorate the status of the Job by the command ```squeue``` :
            2693859     accel   umb_eq manuelca PD       0:00      1 (Priority)
            2693861     accel   umb_eq manuelca PD       0:00      1 (Priority)
            2799386     accel   in5550  myrthel PD       0:00      1 (Priority)
-  ```
+```
 
 To check the status of all the jobs from a single user you can type:
 
@@ -269,5 +269,53 @@ You can either install the conda environments in this shared location ```/cluste
 
 The software is now installed. The message shows what we need to do in order this software runs.
 
+### 5. Optional: Mount the HPC as a "local drive"
 
+Mounting the login node as a local drive on your personal computer can make it easy to access files as well as using a local editor. The official sigma2/saga documentation doesn't offer much on how to do this, so here is a quick guide on how to set it all up. Please be aware that due to the fundamental differences between NTFS and any POSIX-related file system, it is not possible to do this on a Windows based computer.
+
+
+
+0. Optional but highly recommended: Install a personal ssh key set between your computer and saga https://documentation.sigma2.no/getting_started/create_ssh_keys.html?highlight=sshfs#login-via-ssh-keys 
+
+1. On Linux and Macos you should install sshfs.
+
+   On Macos you need FUSE as well. When installing FUSE, be noted that you need to reboot your computer in order to activate the kernel extension.
+
+2. Make an empty file named `~/mountsaga.sh` and paste the following contents into it.
+
+```shell
+#!/bin/bash
+
+# Define and initialize mount dir
+mount_dir="~/saga"
+mkdir -p $mount_dir
+
+
+# Finally, mount the sshfs locally
+sshfs USERNAME@saga.sigma2.no:/cluster/home/USERNAME $mount_dir \
+    -o idmap=none -o uid=$(id -u),gid=$(id -g) \
+    -o allow_other -o umask=077 -o follow_symlinks
+```
+
+​	Please change USERNAME to your user name on saga.
+
+3. Make the script executable by running the following command:
+
+   `chmod +x ~/mountsaga.sh`
+
+4. Finally, mount the sshfs locally by running the following the following command:
+
+   `~/mountsaga.sh`
+
+   This is the command you will use each time you want to mount the sshfs in the future.
+
+   If you want to unmount the sshfs, you can use one of the following commands:
+
+   ```shell
+   # Linux
+   sudo unmount -f ~/saga
+   
+   # Macos
+   sudo diskutil unmount force ~/saga
+   ```
 
