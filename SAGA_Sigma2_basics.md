@@ -232,18 +232,36 @@ You can either install the conda environments in this shared location ```/cluste
 4. Test the software by displaying the help:
 
 ```bash
-(/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0) [auve@login-3.SAGA databases]$ gtdbtk --help
+(/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0) [auve@login-1.SAGA auve]$ gtdbtk --help
 
-================================================================================
-                                     ERROR                                      
-________________________________________________________________________________
+              ...::: GTDB-Tk v1.5.0 :::...
 
-           The GTDB-Tk reference data does not exist or is corrupted.           
-GTDBTK_DATA_PATH=/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0/share/gtdbtk-1.5.0/db/
+  Workflows:
+    classify_wf -> Classify genomes by placement in GTDB reference tree
+                     (identify -> align -> classify)
+    de_novo_wf  -> Infer de novo tree and decorate with GTDB taxonomy
+                     (identify -> align -> infer -> root -> decorate)
 
-   Please compare the checksum to those provided in the download repository.    
-          https://github.com/Ecogenomics/GTDBTk#gtdb-tk-reference-data          
-================================================================================
+  Methods:
+    identify -> Identify marker genes in genome
+    align    -> Create multiple sequence alignment
+    classify -> Determine taxonomic classification of genomes
+    infer    -> Infer tree from multiple sequence alignment
+    root     -> Root tree using an outgroup
+    decorate -> Decorate tree with GTDB taxonomy
+
+  Tools:
+    infer_ranks -> Establish taxonomic ranks of internal nodes using RED
+    ani_rep     -> Calculates ANI to GTDB representative genomes
+    trim_msa    -> Trim an untrimmed MSA file based on a mask
+    export_msa  -> Export the untrimmed archaeal or bacterial MSA file
+
+  Testing:
+    test          -> Validate the classify_wf pipeline with 3 archaeal genomes 
+    check_install -> Verify third party programs and GTDB reference package.
+
+  Use: gtdbtk <command> -h for command specific help
+
 ````
 
 The software is now installed. The message shows what we need to do in order this software runs.
