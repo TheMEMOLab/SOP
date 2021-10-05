@@ -182,7 +182,7 @@ The Sigma2 documentation fully describes how to do this [here](https://documenta
 The following command will create a Conda environment named: GTDBTK-1.5.0 and install on it all the dependencies to run gtdbtk tool.
 
 ```bash
-$ conda create -y --prefix /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0 -c conda-forge -c bioconda gtdbtk=1.5.0
+$ conda create -y --prefix /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5 -c conda-forge -c bioconda gtdbtk=1.5.0
 ```
 If everything is OK it will start running and displaying something like this:
 ```bash
@@ -192,7 +192,7 @@ Collecting package metadata (repodata.json): done
 Solving environment: done
 ## Package Plan ##
 
-  environment location: /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0
+  environment location: /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5
 
   added / updated specs:
     - gtdbtk=1.5.0
@@ -209,12 +209,12 @@ zstd-1.4.9           | 431 KB    | #############################################
 lz4-c-1.9.3          | 179 KB    | ################################################################################################################################################### | 100% 
 Preparing transaction: done
 Verifying transaction: done
-Executing transaction: - b'\n     GTDB-Tk v1.5.0 requires ~40G of external data which needs to be downloaded\n     and unarchived. This can be done automatically, or manually:\n\n     1. Run the command download-db.sh to automatically download to:\n        /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0/share/gtdbtk-1.5.0/db/\n\n     2. Manually download the latest reference data:\n        https://github.com/Ecogenomics/GTDBTk#gtdb-tk-reference-data\n\n     2b. Set the GTDBTK_DATA_PATH environment variable in the file:\n         /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0/etc/conda/activate.d\n\n\n'
+Executing transaction: - b'\n     GTDB-Tk v1.5.0 requires ~40G of external data which needs to be downloaded\n     and unarchived. This can be done automatically, or manually:\n\n     1. Run the command download-db.sh to automatically download to:\n        /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5/share/gtdbtk-1.5.0/db/\n\n     2. Manually download the latest reference data:\n        https://github.com/Ecogenomics/GTDBTk#gtdb-tk-reference-data\n\n     2b. Set the GTDBTK_DATA_PATH environment variable in the file:\n         /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5/etc/conda/activate.d\n\n\n'
 done
 #
 # To activate this environment, use
 #
-#     $ conda activate /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0
+#     $ conda activate /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5
 ```
 *Explaining the command:
 conda create: Create a conda environent
@@ -222,20 +222,20 @@ conda create: Create a conda environent
 --prefix: Full path to environment location (i.e. prefix).
 -c : Additional channel to search for packages.*
 
-You can either install the conda environments in this shared location ```/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0``` or in your personal ```nn9864k/$USER``` folder. The idea of the shared folder is to create a compendium of multiple bioinformatic tools many people in the MEMO group use and not to install them every time a user needs one. 
+You can either install the conda environments in this shared location ```/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5``` or in your personal ```nn9864k/$USER``` folder. The idea of the shared folder is to create a compendium of multiple bioinformatic tools many people in the MEMO group use and not to install them every time a user needs one. 
 
 3. Activate the environment:
 
 ```bash
 (base) [auve@login-3.SAGA auve]$ conda activate /cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0
-(/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0) [auve@login-3.SAGA auve]$
+(/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5) [auve@login-3.SAGA auve]$
 ```
 
 
 4. Test the software by displaying the help:
 
 ```bash
-(/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5.0) [auve@login-1.SAGA auve]$ gtdbtk --help
+(/cluster/projects/nn9864k/shared/condaenvironments/GTDBTK-1.5) [auve@login-1.SAGA auve]$ gtdbtk --help
 
               ...::: GTDB-Tk v1.5.0 :::...
 
