@@ -269,7 +269,87 @@ You can either install the conda environments in this shared location ```/cluste
 
 The software is now installed. The message shows what we need to do in order this software runs.
 
-### 5. Optional: Mount the HPC as a "local drive" using *sshfs*
+### 5. Storage raw permanet data using the NIRD - National Infrastructure for Research Data.
+
+The MEMO group has access to the [NIRD - National Infrastructure for Research Data](https://documentation.sigma2.no/files_storage/nird.html) to storage large ammount of raw data. So far the group has 10TB of space in the NIRD:
+
+```bash 
+[auve@login2-nird-tos ~]$ dusage -p ns9864k
+==========================================================================================
+Project      Account    Resource        Type    Usage      Soft Limit   Hard Limit
+NS9864K      $PROJECT    nird           Disk    8.844TB      10TB         10TB
+NS9864K      $PROJECT    nird           Files   150574       307200       307200
+------------------------------------------------------------------------------------------
+```
+
+Users can access the NIRD by SAGA in the path ```/nird/projects/nird/NS9864K``` . Also you can directly login to the NIRD login node by ssh. For example the user auve:
+
+```bash
+$ ssh auve@login-tos.nird.sigma2.no
+auve@login-tos.nird.sigma2.no's password:
+Last login: Thu Feb 24 10:30:19 2022 from tos-spw05.nird.sigma2.no
+Welcome to nird.sigma2.no!
+
+Documentation:  https://documentation.sigma2.no/
+Support email:  support@nris.no
+Request resources:
+                https://www.sigma2.no/content/apply-e-infrastructure-resources/
+
+--------------------------------------------------------------------------------------------------------
+| Join our HPC Q&A session. Focus on Gaussian & VASP 8.3. 13:00-15:00. Ask question, discuss problems. |
+| See https://documentation.sigma2.no/getting_help/qa-sessions.html                                    |
+--------------------------------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Latest news from:       https://opslog.sigma2.no/
+
+  o 2022-02-25: Potential problem with NIRD storage
+  o 2022-02-16: [UPDATED] NIRD Trondheim – controller maintenance
+  o 2022-02-16: Fram downtime 23rd – 24th February
+  o 2022-02-08: FRAM – connectivity blip 09.02.2022
+  o 2022-01-25: [Resolved] Betzy: Slurm server down
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Software is directly available from command line (no modules installed).
+For Intel compilers type:
+        source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh \
+        -arch intel64 -platform linux
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
+As soon as you login you will find a directory with a backup files from your home at SAGA. The NIRD project directory for the MEMO group is allocated in the folder ```/projects/NS9864K```
+
+```bash
+[auve@login3-nird-tos backup]$ cd /projects/NS9864K/
+[auve@login3-nird-tos NS9864K]$ pwd
+/projects/NS9864K
+[auve@login3-nird-tos NS9864K]$ ls
+datasets  datasets_no_replication  readme-magnus.txt  www
+```
+
+Accordingly to the readme:
+
+```
+[auve@login3-nird-tos NS9864K]$ more readme-magnus.txt
+This folder is the NIRD project storage for the MEMO group and has secure backup in separate locations in Norway.
+This will primarily contain data that cannot be reproduced, e.g. published final data.
+
+Datasets with secure georeplication backup should go in the folder 'datasets'
+Datasets not in need of georeplications (i.e. no that important) should go in the folder 'datasets_no_replication'
+
+Please adhere to the agreed folder structures, i.e. to store by 'YYYY_projectname' and within each folder
+put a readme with some info about the project, e.g. publication DOI, etc.
+```
+
+Please follow the instructions.
+
+**5.1 Publicly world wide acess directory for sharing data to external collaborators.**
+
+Users at MEMO group can use NIRD to share data with external collaborators using the folder ```/projects/NS9864K/www/TheMEMOLab```. You can create a folder (user name e.g. auve) there and copy data want to share.
+
+The folder can be worldwide accessed by anyone at  http://ns9864k.web.sigma2.no/ 
+
+**Keep in mind that the files in www are accessible to anyone from that URL. So be aware of not sharing sensitive confidential data**
+
+### 6. Optional: Mount the HPC as a "local drive" using *sshfs*
 
 Mounting the HPC as a local drive on your personal computer, means that you can access the HPC file system directly through your local applications. The official sigma2/saga documentation doesn't offer much on how to do this, so here is a quick guide on how to set it up. Please be aware that due to the fundamental differences between NTFS and any POSIX-related file system, it is not possible to do this on a Windows based compter.
 
