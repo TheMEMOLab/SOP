@@ -158,7 +158,54 @@ To check the status of all the jobs from a single user you can type:
 ```bash
 base) [auve@login-3.SAGA auve]$ squeue -u $USER
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+             
 ```
+
+After job finished this will produce a ```slurm-JOBID.out``` file. If we look at the bottom of this file it has some stats:
+
+```bash
+$  tail -50 slurm-FastP-5268535_1.out
+Task and CPU usage stats:
+       JobID    JobName  AllocCPUS   NTasks     MinCPU MinCPUTask     AveCPU    Elapsed ExitCode
+------------ ---------- ---------- -------- ---------- ---------- ---------- ---------- --------
+5268535_1         FastP         12                                             00:11:11      0:0
+5268535_1.b+      batch         12        1   00:32:26          0   00:32:26   00:11:11      0:0
+5268535_1.e+     extern         12        1   00:00:00          0   00:00:00   00:11:12      0:0
+
+Memory usage stats:
+       JobID     MaxRSS MaxRSSTask     AveRSS MaxPages   MaxPagesTask   AvePages
+------------ ---------- ---------- ---------- -------- -------------- ----------
+5268535_1
+5268535_1.b+    662848K          0    662848K        0              0          0
+5268535_1.e+          0          0          0        0              0          0
+
+Disk usage stats:
+       JobID  MaxDiskRead MaxDiskReadTask    AveDiskRead MaxDiskWrite MaxDiskWriteTask   AveDiskWrite
+------------ ------------ --------------- -------------- ------------ ---------------- --------------
+5268535_1
+5268535_1.b+    19844.32M               0      19844.32M    20580.97M                0      20580.97M
+5268535_1.e+        0.00M               0          0.00M            0                0              0
+```
+
+These stats will reflect the amount of RAM and CPUS the job used. However, the command seff can be used to display the complet resources the job used:
+
+```bash
+(base) [auve@login-5.SAGA IlluminaFolders]$ seff 5268535_1
+Job ID: 5268539
+Array Job ID: 5268535_1
+Cluster: saga
+User/Group: auve/auve
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:32:32
+CPU Efficiency: 24.24% of 02:14:12 core-walltime
+Job Wall-clock time: 00:11:11
+Memory Utilized: 647.31 MB
+Memory Efficiency: 12.64% of 5.00 GB
+```
+
+**Before sending large jobs it is highly recommend to use seff and look for the amount of resources a toy or test job uses.**
 
 ### 4. Conda environments 
 
