@@ -11,7 +11,7 @@ This document is intended to be a quick reference guide on basic usage of SAGA H
 
  **2.1 How to obtain an account:**
 
-To be abble to use the SAGA cluster you first need to apply for an account. Please use the following link [HPC user application form](https://www.metacenter.no/user/application/form/notur/) and fill the aplication form. 
+To be abble to use the SAGA cluster you first need to apply for an account. Please use the following link [HPC user application form](https://www.metacenter.no/user/application/) and fill the aplication form. 
 
 * Chose the Project number **NN9864K**  in the application form as follow.
 ![pic1](https://github.com/TheMEMOLab/SOP/blob/main/images/application.png)
